@@ -9,11 +9,22 @@ public class DecimalToBinary {
         int n =sc.nextInt();
 
         System.out.println(isDecimal(n));
+
+
     }
     public static String isDecimal(int n){
-        int count=0;
+
         String binary ="";
+        int original=n;
         int k=2;
+        if(n==0){
+          binary=n+binary;
+        }
+
+        if(n<0){
+            n=n*-1;
+        }
+
         while(n>0){
             int d =n%2;
 
@@ -21,6 +32,13 @@ public class DecimalToBinary {
 
             n=n/2;
         }
-        return binary;
+
+        if(original<0){
+            return "-"+binary;
+        }
+        else {
+            return binary;
+        }
+
     }
 }
